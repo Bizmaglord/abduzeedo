@@ -1,0 +1,167 @@
+/* 
+----------UNIVERSAL STYLES----------
+*/
+* { 
+    box-sizing: border-box;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    
+}
+
+body {
+    font-family:'Source Sans Pro', sans-serif;
+    color: #999;
+    font-size: 14px;
+    font-weight: 400;
+    line-height:21px;
+}
+
+/* 
+----------Main ----------
+
+*/
+
+h1, h2, h3, .navi {
+    font-family: 'Varela', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+    text-transform: uppercase;
+}
+
+a {
+    text-decoration: none;
+    color: rgba(0,0,0,1);
+}
+
+ul {  
+    padding: 0;}
+li { 
+    display: inline;
+}
+
+/* 
+-.wrap is the body, it creates the 30px margins on either side. Theres an additional margin on the right as part of the <aside> tag, but not the for the featured content
+
+-I learned that There is a secondary wrap with a -30px margin-left on the real website. This might be to fix the images from being 60px away from the left edge. I had been trying to work it out.
+*/
+
+.main-wrap {
+    max-width: 1360px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+/* 
+-In this header tag, the top padding is 30px total, but the border is 6px, so I only did 24px; 6+24=30
+*/
+
+header {
+    border-top: 6px solid #000;
+    padding: 24px 0 40px 0 ;
+    
+}
+
+/* 
+-Make sure to add a @media query to reduce the logo later on in smaller screens.
+*/
+
+.logo {
+    max-width: 80px;
+}
+
+/* 
+----------Navigation Styling----------
+
+-Vertical-align, I initially did it on the .navi tag, heheehe....
+
+-I noticed theres a ::after (It's some kind of special dot.. Ill find out what it is..) element inbetween the menu items, I didn't account for it so I will have to add it + edit the values on the margin between each menu item etc...
+
+
+*/
+
+#main-nav {
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    vertical-align: middle
+}
+
+.navi li {
+    margin-left: 50px;
+    vertical-align:middle;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+
+/* 
+ ----------Image styling----------
+
+-add .post-img to the main-content images so they get a border outline too
+*/
+
+.post-img {
+    max-width: 100%;
+    height: auto;
+    display: inline;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+
+/* 
+ ----------ad-sense styling----------
+-I forgot to pause adblock so i was missing this, I couldn't see the add styling which is an essential part of the website layout...
+
+*/
+
+/* 
+ ----------Features styling----------
+
+-I found out that the featured styling has a -30px in order to balance out the padding on the featured block padding. I have to add the -30px margin on the content blocks too.
+*/
+
+#features {
+    margin-left: -30px;
+    margin-top: 50px;
+    
+}
+
+.feat-block {
+    max-width: 33.3334%;
+    margin:0 auto ;
+    padding-left:30px;
+    float: left;
+}
+
+.feat-block p, h2{ 
+    text-align: left;
+    margin: 30px 0 20px 0;
+}
+
+/* 
+ ----------Main-Content Styling----------
+*/
+
+
+
+
+
+/* 
+ ----------Clearfix----------
+
+Still reading into the specifics of this, I'm not entirely sure what clearfix is actually doing, or how it works.
+
+*/
+
+.clearfix:after {
+	clear: both;
+	display: block;
+	content: " ";
+	height: 0px;
+	visibility: hidden;
+}
+.clearfix {
+	display: inline-block;
+}
