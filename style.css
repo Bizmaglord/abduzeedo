@@ -47,7 +47,7 @@ li {
 -I learned that There is a secondary wrap with a -30px margin-left on the real website. This might be to fix the images from being 60px away from the left edge. I had been trying to work it out.
 */
 
-.main-wrap {
+#main-wrap {
     max-width: 1360px;
     padding: 0 30px;
     margin: 0 auto;
@@ -72,7 +72,7 @@ header {
 }
 
 /* 
-----------Navigation Styling----------
+----------Navigation----------
 
 -Vertical-align, I initially did it on the .navi tag, heheehe....
 
@@ -97,7 +97,7 @@ header {
 }
 
 /* 
- ----------Image styling----------
+ ----------Images----------
 
 -add .post-img to the main-content images so they get a border outline too
 */
@@ -109,15 +109,48 @@ header {
     border: 1px solid rgba(0,0,0,.1);
 }
 
+.ad-img {
+    max-width:100%;
+    height: auto;
+}
+
 
 /* 
- ----------ad-sense styling----------
--I forgot to pause adblock so i was missing this, I couldn't see the add styling which is an essential part of the website layout...
+ ----------Advertisements----------
+-I forgot to pause adblock so i was missing this, I couldn't see the add styling which is an essential part of the website layout.
+
+-in order to get the correct measurements, I had to inspect the elements straight from the browser rather than calculating them on photoshop, Like i did for the rest of the layout.
 
 */
+/* 
+middle adsense----------
+*/
+
+#mid-adsense, #foot-adsense {
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-bottom: 1px solid rgba(0,0,0,.1);
+
+}
+
+.ad-frame {
+    height: 90px;
+}
 
 /* 
- ----------Features styling----------
+aside adsense----------
+*/
+
+#sidebar {
+    float: right;
+    width: 330px;
+}
+
+
+
+/* 
+ ----------Features----------
 
 -I found out that the featured styling has a -30px in order to balance out the padding on the featured block padding. I have to add the -30px margin on the content blocks too.
 */
@@ -141,9 +174,36 @@ header {
 }
 
 /* 
- ----------Main-Content Styling----------
+ ----------Main-Content----------
+-So i should've put both the sidebar+main content in a div
+i forgot and i wondered why when i floated the main content, the footer would shoot up above it?!
+-I will now create a div to nest both the content+sidebar so it will all function properly.
+
+*/
+#content {
+    width: 100%;
+}
+
+#main-section {
+    width: calc(100% - 340px);
+    /* These values above are new to me, but so awesome!
+        -learned about how you need to have spaces between the values inside the brackets for it to work.
+    */
+    position: relative;
+    float: left;
+}
+
+/* 
+ ----------Bottom----------
+*/
+/* 
+ Rawz----------
 */
 
+
+/* 
+ Footer----------
+*/
 
 
 
