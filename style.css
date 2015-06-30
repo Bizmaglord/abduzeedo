@@ -96,6 +96,37 @@ header {
     line-height: 30px;
 }
 
+/*Pagination---
+*/
+.pagination {
+    display: inline-block;
+    position:relative;
+    float: right;
+    
+}
+
+/* 
+This div .next-link : the padding was used to cover the gap that there is between the main-content and the footer ad. 
+
+Haven't found a way to fix it but i'm sure it's simple, probably have extra code somewhere i need to remove to replace.
+
+Right now all i can do is this, the border-right is only there to cover the gap, but it doesn't look right because the border box is within, so it shows up as a border within a border.
+
+'*/
+
+.next-link {
+    padding: 9px 40px;
+    font-family: 'Source Sans Pro';
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #777;
+    border-top:1px solid rgba(0,0,0,.1) ;
+    border-left:1px solid rgba(0,0,0,.1) ;
+    border-right:1px solid rgba(0,0,0,.1) ;
+}
+
+
+
 /* 
  ----------Images----------
 
@@ -112,6 +143,11 @@ header {
 .ad-img {
     max-width:100%;
     height: auto;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.aside-img {
+    float: right;
 }
 
 
@@ -128,6 +164,7 @@ middle adsense----------
 
 #mid-adsense, #foot-adsense {
     width: 100%;
+    margin: 0;
     padding: 20px 0;
     border-top: 1px solid rgba(0,0,0,.1);
     border-bottom: 1px solid rgba(0,0,0,.1);
@@ -145,6 +182,7 @@ aside adsense----------
 #sidebar {
     float: right;
     width: 330px;
+    margin-top: 50px;
 }
 
 
@@ -185,13 +223,37 @@ i forgot and i wondered why when i floated the main content, the footer would sh
 }
 
 #main-section {
-    width: calc(100% - 340px);
+    width: calc(100% - 330px);
     /* These values above are new to me, but so awesome!
         -learned about how you need to have spaces between the values inside the brackets for it to work.
     */
     position: relative;
     float: left;
+    border-right: 1px solid rgba(0,0,0,.1);
 }
+
+/* Still missing the block titles*/
+.main-block {
+    position: relative;
+    max-width: 33.3334%;
+    margin-top: 50px;
+    float: right;
+}
+
+.main-block p {
+    text-align: left;
+}
+
+
+/* 
+This div class called even is nested within .main-block with a margin right of 30px to create a space between each div.
+
+without moving the content posts out of the flow of the float. the box would become too big if i gave it a margin of 30px.
+*/
+.even {
+    margin-right: 30px;
+}
+
 
 /* 
  ----------Bottom----------
@@ -200,11 +262,97 @@ i forgot and i wondered why when i floated the main content, the footer would sh
  Rawz----------
 */
 
+.rawz {
+    padding: 20px 0 40px;
+    font-size: 18px;
+    line-height: 32px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    
+    
+}
+.rawz-submit { 
+    width: 50%;
+    margin: 0 auto;
+}
+
+.rawz-img {
+    width: 150px;
+}
+
+
+a.submit-btn {
+    display: block;
+    margin: 30px auto 0;
+    padding: 8px 4px 8px 3px;
+    width: 200px;
+    
+    border: 3px solid rgba(0,0,0,1);
+    border-radius: 2px;
+    
+    text-align: center;
+    font-family: 'Varela';
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    /* 
+    I need to get to grips with transitions for different states here.. meanwhile this will remain hidden....
+    transition: all ease .3s;
+    */
+}
+
+/* 
+So in the photoshop screenshot, the rawz images dont line up with the grid.
+I will align my images for the sake on it.
+-they will be split into 3 columns of 33.3334%
+-Each gap between each column is 30px, and each image will have a 30px gap between eachother also.
+*/
+
 
 /* 
  Footer----------
 */
 
+.footer {
+    margin: 50px 0;
+}
+
+h3.tag-title {
+    text-align: left;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0,0,0,1);
+}
+
+ul.tag-list {
+}
+
+li.tag-term {
+    display: block;
+    line-height: 190%;
+    width: 25%;
+    float: left;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+/* Credits go to.. */
+
+.credits {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.credits p{
+    float: left;
+    text-align: left;
+}
+
+.credits img{
+    width: 32px;
+    vertical-align: middle;
+    float: right;
+}
 
 
 
@@ -212,10 +360,11 @@ i forgot and i wondered why when i floated the main content, the footer would sh
  ----------Clearfix----------
 
 Still reading into the specifics of this, I'm not entirely sure what clearfix is actually doing, or how it works.
+in order to put it to good use I feel I have to understand the specifics for what clear does and such.
 
 */
 
-.clearfix:after {
+.clearfix::after {
 	clear: both;
 	display: block;
 	content: " ";
