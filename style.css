@@ -150,6 +150,10 @@ Right now all i can do is this, the border-right is only there to cover the gap,
     float: right;
 }
 
+.credits img{
+    width: 32px;
+}
+
 
 /* 
  ----------Advertisements----------
@@ -313,7 +317,12 @@ I will align my images for the sake on it.
 */
 
 .footer {
-    margin: 50px 0;
+    margin:30px 0 ;
+}
+
+.tagcloud {
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 h3.tag-title {
@@ -340,20 +349,19 @@ li.tag-term {
 
 .credits {
     width: 100%;
-    margin-top: 50px;
+    padding: 14px 0 0;
+
 }
 
 .credits p{
     float: left;
-    text-align: left;
+    text-align: left
 }
 
-.credits img{
-    width: 32px;
-    vertical-align: middle;
+.social {
+    display: block;
     float: right;
 }
-
 
 
 /* 
