@@ -18,7 +18,11 @@ body {
 }
 
 /* 
-----------Main ----------
+-------------------------------- 
+--------- MAIN SECTION ---------
+--------------------------------
+--------------------------------
+
 
 */
 
@@ -71,8 +75,11 @@ header {
     max-width: 80px;
 }
 
-/* 
-----------Navigation----------
+/*  
+---------------------------------- 
+--------- NAVI SECTION -----------
+----------------------------------
+----------------------------------
 
 -Vertical-align, I initially did it on the .navi tag, heheehe....
 
@@ -90,10 +97,22 @@ header {
 }
 
 .navi li {
-    margin-left: 50px;
+    ;
     vertical-align:middle;
     text-transform: uppercase;
     line-height: 30px;
+}
+
+/* This ::after for the dot between each li of .navi */
+.navi li::after {
+    content: "•";
+    margin:0 20px 0;
+    color: rgba(0,0,0,.1);
+}
+
+/* This one is for the last "child" of the .navi ul won't have a ::after displayed at the end of it. So there isn't an extra dot at the end of the .navi block */
+.navi li:last-child::after {
+    display:none;
 }
 
 /*Pagination---
@@ -101,6 +120,8 @@ header {
 .pagination {
     display: inline-block;
     position:relative;
+    right:-1px ;
+    /* This attibute above is a bit of a quik-fix, need to line is up correctly */
     float: right;
     
 }
@@ -128,7 +149,10 @@ Right now all i can do is this, the border-right is only there to cover the gap,
 
 
 /* 
- ----------Images----------
+---------------------------------- 
+--------- IMAGES SECTION ---------
+----------------------------------
+----------------------------------
 
 -add .post-img to the main-content images so they get a border outline too
 */
@@ -156,7 +180,11 @@ Right now all i can do is this, the border-right is only there to cover the gap,
 
 
 /* 
- ----------Advertisements----------
+-----------------------------------
+--------- ADSENSE SECTION ---------
+-----------------------------------
+-----------------------------------
+
 -I forgot to pause adblock so i was missing this, I couldn't see the add styling which is an essential part of the website layout.
 
 -in order to get the correct measurements, I had to inspect the elements straight from the browser rather than calculating them on photoshop, Like i did for the rest of the layout.
@@ -192,14 +220,18 @@ aside adsense----------
 
 
 /* 
- ----------Features----------
+------------------------------------
+--------- FEATURES SECTION ---------
+------------------------------------
+------------------------------------
+
 
 -I found out that the featured styling has a -30px in order to balance out the padding on the featured block padding. I have to add the -30px margin on the content blocks too.
 */
 
 #features {
     margin-left: -30px;
-    margin-top: 50px;
+    margin-top: 40px;
     
 }
 
@@ -215,8 +247,24 @@ aside adsense----------
     margin: 30px 0 20px 0;
 }
 
-/* 
- ----------Main-Content----------
+/*-- Feature MediaQueries --
+
+At the 1100px mark there's a reduction in margins, i'm assuming its reduced by half
+
+This is for the medium width Feature */
+@media all and (min-width: 770px) and (max-width: 1100px){ 
+    .feat-block {
+        padding-left: 15px;
+}
+    
+}
+
+/*  
+----------------------------------------
+--------- MAIN CONTENT SECTION ---------
+----------------------------------------
+----------------------------------------
+
 -So i should've put both the sidebar+main content in a div
 i forgot and i wondered why when i floated the main content, the footer would shoot up above it?!
 -I will now create a div to nest both the content+sidebar so it will all function properly.
@@ -236,7 +284,7 @@ i forgot and i wondered why when i floated the main content, the footer would sh
     border-right: 1px solid rgba(0,0,0,.1);
 }
 
-/* Still missing the block titles*/
+
 .main-block {
     position: relative;
     max-width: 33.3334%;
@@ -244,8 +292,34 @@ i forgot and i wondered why when i floated the main content, the footer would sh
     float: right;
 }
 
+/* 
+-So what i learnt below is:
+    
+    -Overflow:is what happens to what overflows from the box
+    
+-text-overflow: What method will the browser show the overflow in.. so far i know ellipsis makes it end in a "..."
+    
+-white-space: changes how the "whitespace" inside the element is handled by the browser, nowrap seems to only show what is within the immediate box without having to add new lines, and doesn't preserve, it hides "overflows" 
+        
+-So the combo here is, the white-space makes it so nothig outside the box can be show, the text-overflow makes it so any text that is overflowing and clipped by the box ends in ...(continued), and this is achieved by letting the text overflow outwards by the overflow
+
+----correct me if I'm wrong...pls...
+*/
+
+.main-block h2 {
+   text-align: left;
+   color: rgba(0,0,0,1);
+    overflow: hidden;
+   text-overflow: ellipsis;
+    white-space: nowrap;
+    
+}
+
 .main-block p {
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
 }
 
 
@@ -258,9 +332,26 @@ without moving the content posts out of the flow of the float. the box would bec
     margin-right: 30px;
 }
 
+/*-- Main Content MediaQueries --*/
+
+/* This is for the mid-screen size */
+@media all and (min-width:770px) and (max-width: 1100px){ 
+    .main-block {
+    position: relative;
+    max-width: 50%;
+    }
+    
+    .even {
+        margin-right: 15px;
+    }
+
+}
 
 /* 
- ----------Bottom----------
+---------------------------------- 
+--------- BOTTOM SECTION ---------
+----------------------------------
+----------------------------------
 */
 /* 
  Rawz----------
@@ -313,7 +404,9 @@ I will align my images for the sake on it.
 
 
 /* 
- Footer----------
+--------------------------
+----------Footer----------
+
 */
 
 .footer {
@@ -333,12 +426,12 @@ h3.tag-title {
     color: rgba(0,0,0,1);
 }
 
-ul.tag-list {
-}
+
 
 li.tag-term {
     display: block;
     line-height: 190%;
+    position: relative;
     width: 25%;
     float: left;
     text-align: left;
@@ -349,8 +442,7 @@ li.tag-term {
 
 .credits {
     width: 100%;
-    padding: 14px 0 0;
-
+    margin-top: 14px;
 }
 
 .credits p{
@@ -363,9 +455,38 @@ li.tag-term {
     float: right;
 }
 
+/*
+-- Footer MediaQueries --
+-------------------------
+*/
+/* This is for the mid-screen size */
+@media only screen and (min-width:770px) and (max-width: 1100px){ 
+    li.tag-term {
+        width: 33.3334%;
+    }
+}
+/* This is for the low-screen size */
+@media only screen and (max-width: 770px){
+    body {background-color: aqua;}
+    .tagcloud {
+        display: none;
+    }
+    .credits {
+        margin-top: 7px;
+    }
+    .credits p{
+        float: none;
+        text-align: center;
+        }
+    .social {
+        float: none;
+    }
+}
+
 
 /* 
- ----------Clearfix----------
+-----------Clearfix----------
+-----------------------------
 
 Still reading into the specifics of this, I'm not entirely sure what clearfix is actually doing, or how it works.
 in order to put it to good use I feel I have to understand the specifics for what clear does and such.
