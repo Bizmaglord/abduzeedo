@@ -1,27 +1,64 @@
 /* 
 ----------UNIVERSAL STYLES----------
+
+-So I've thought that i should need chapter titles to make it easier to CTRL+F into what I'm immediately looking for....
+-So here's the chapters, which will be updated slowly:
+    <------------------------------------> 
+    <----------------INDEX--------------->
+    <------------------------------------> 
+    .Vol.1 -- Main Section --------------
+    -------------------------------------
+        .Vol.1.1 - Main Section media Q's
+
+    .Vol.2 -- Images Section ------------
+    -------------------------------------
+
+    .Vol.3 -- Navi Section --------------
+        .Vol.3.1 - Pagination
+        .Vol.3.2 - Navi media Q's
+    -------------------------------------
+
+    .Vol.4 -- Adsense Section -----------
+        .vol.4.1 - middle adsense
+        .vol.4.2 - aside adsense
+        .vol.4.3 - adsense media Q's
+    -------------------------------------
+
+    .Vol.5 -- Feature Content -----------
+        .vol.5.1 - feature media Q's
+
+    -------------------------------------
+
+    .Vol.6 -- Main Content --------------
+    -------------------------------------
+
+    .Vol.7 --
+    -------------------------------------
+
+    -------------------------------------
+    <----------------END-----------------> 
 */
+
 * { 
     box-sizing: border-box;
     text-align: center;
-    padding: 0;
-    margin: 0;
     
 }
 
 body {
     font-family:'Source Sans Pro', sans-serif;
-    color: #999;
+    color: #555;
     font-size: 14px;
     font-weight: 400;
     line-height:21px;
+    margin: 0 auto;
 }
 
 /* 
--------------------------------- 
---------- MAIN SECTION ---------
---------------------------------
---------------------------------
+-------------------------------------- 
+---------.Vol.1 MAIN SECTION ---------
+--------------------------------------
+--------------------------------------
 
 
 */
@@ -70,16 +107,50 @@ header {
 /* 
 -Make sure to add a @media query to reduce the logo later on in smaller screens.
 */
+/*--.Vol.1.1 Main Section MediaQueries --
+---------------------------------
+
+This is for lo size
+-------------------------*/
+@media only screen and (max-width:767px) {
+    #main-wrap {
+        max-width: 500px;
+    }
+}/*
+----End of Main Section Media Queries---
+*/
+
+
+/* 
+---------------------------------------- 
+---------.Vol.2 IMAGES SECTION ---------
+----------------------------------------
+----------------------------------------
+
+-add .post-img to the main-content images so they get a border outline too
+*/
 
 .logo {
     max-width: 80px;
 }
 
+.post-img {
+    max-width: 100%;
+    height: auto;
+    display: inline;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.credits img{
+    width: 32px;
+}
+
+
 /*  
----------------------------------- 
---------- NAVI SECTION -----------
-----------------------------------
-----------------------------------
+---------------------------------------- 
+---------.Vol.3 NAVI SECTION -----------
+----------------------------------------
+----------------------------------------
 
 -Vertical-align, I initially did it on the .navi tag, heheehe....
 
@@ -115,7 +186,7 @@ header {
     display:none;
 }
 
-/*Pagination---
+/*.Vol.3.1 Pagination---
 */
 .pagination {
     display: inline-block;
@@ -146,52 +217,37 @@ Right now all i can do is this, the border-right is only there to cover the gap,
     border-right:1px solid rgba(0,0,0,.1) ;
 }
 
+/*
+--.Vol.3.2 Navi MediaQueries --
+-----------------------
 
+-So I realised why the low-screen size is 767px on abduzeedo, and that is after changing the ::after margin, this is the new threshold that the .mani can hold shape till.
+-I was initially doing the following:
+@media ONLY screen AND (max-width) and (min-width), But i changed that to just what it is now, seems simplified to me, hopefully it will work as intended...
 
-/* 
----------------------------------- 
---------- IMAGES SECTION ---------
-----------------------------------
-----------------------------------
-
--add .post-img to the main-content images so they get a border outline too
 */
-
-.post-img {
-    max-width: 100%;
-    height: auto;
-    display: inline;
-    border: 1px solid rgba(0,0,0,.1);
+/* This is for the mid size 
+@media only screen and (min-width:767px) and (max-width: 1100px){ 
+    .navi li::after {
+        margin: 0 10px 0;
+    }
 }
 
-.ad-img {
-    max-width:100%;
-    height: auto;
-    border: 1px solid rgba(0,0,0,.1);
-}
-
-.aside-img {
-    float: right;
-}
-
-.credits img{
-    width: 32px;
-}
-
-
+**/
 /* 
------------------------------------
---------- ADSENSE SECTION ---------
------------------------------------
------------------------------------
+-----------------------------------------
+---------.Vol.4 ADSENSE SECTION ---------
+-----------------------------------------
+-----------------------------------------
 
 -I forgot to pause adblock so i was missing this, I couldn't see the add styling which is an essential part of the website layout.
 
 -in order to get the correct measurements, I had to inspect the elements straight from the browser rather than calculating them on photoshop, Like i did for the rest of the layout.
 
-*/
-/* 
-middle adsense----------
+
+
+.Vol.4.1 middle adsense----------
+---------------------------------
 */
 
 #mid-adsense, #foot-adsense {
@@ -207,8 +263,15 @@ middle adsense----------
     height: 90px;
 }
 
+.ad-img {
+    max-width:100%;
+    height: auto;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
 /* 
-aside adsense----------
+.Vol.4.2 aside adsense----------
+--------------------------------
 */
 
 #sidebar {
@@ -217,13 +280,32 @@ aside adsense----------
     margin-top: 50px;
 }
 
+.aside-img {
+    float: right;
+}
+
+/*
+.Vol.4.3 AdSense MediaQueries --
+--------------------------------
+
+/*This is for the lo size adsense 
+---------------------------------*/
+@media only screen and (max-width: 767px){
+    #sidebar {
+        float: none;
+        width: 100%;
+    }
+    .aside-img {
+        float: none;
+    }
+}
 
 
 /* 
-------------------------------------
---------- FEATURES SECTION ---------
-------------------------------------
-------------------------------------
+-----------------------------------------
+---------Vol.5 FEATURES SECTION ---------
+-----------------------------------------
+-----------------------------------------
 
 
 -I found out that the featured styling has a -30px in order to balance out the padding on the featured block padding. I have to add the -30px margin on the content blocks too.
@@ -245,23 +327,44 @@ aside adsense----------
 .feat-block p, h2{ 
     text-align: left;
     margin: 30px 0 20px 0;
+    
 }
 
-/*-- Feature MediaQueries --
+/*--.Vol.5.1 Feature MediaQueries --
+------------------------------------
 
 At the 1100px mark there's a reduction in margins, i'm assuming its reduced by half
 
-This is for the medium width Feature */
-@media all and (min-width: 770px) and (max-width: 1100px){ 
+--This is for the mid size Feature 
+@media only screen and (min-width: 767px) and (max-width: 1100px){ 
     .feat-block {
         padding-left: 15px;
 }
     
 }
+/*This is for the lo size Feature 
+---------------------------------*/
+@media only screen and (max-width: 767px){ 
+    .feat-block {
+        padding-left: 15px;
+        max-width: 100%;
+        height: auto;
+    }
+    .feat-block img{
+        width: 100%;
+    }
+    
+}/*End of lo size 
+
+-- !!End Feature MediaQueries!! --
+---------------------------------
+*/
+
+
 
 /*  
 ----------------------------------------
---------- MAIN CONTENT SECTION ---------
+---------.Vol.6 MAIN CONTENT SECTION ---------
 ----------------------------------------
 ----------------------------------------
 
@@ -270,9 +373,7 @@ i forgot and i wondered why when i floated the main content, the footer would sh
 -I will now create a div to nest both the content+sidebar so it will all function properly.
 
 */
-#content {
-    width: 100%;
-}
+
 
 #main-section {
     width: calc(100% - 330px);
@@ -303,14 +404,14 @@ i forgot and i wondered why when i floated the main content, the footer would sh
         
 -So the combo here is, the white-space makes it so nothig outside the box can be show, the text-overflow makes it so any text that is overflowing and clipped by the box ends in ...(continued), and this is achieved by letting the text overflow outwards by the overflow
 
-----correct me if I'm wrong...pls...
-*/
+----correct me if I'm wrong...pls... */
+
 
 .main-block h2 {
-   text-align: left;
-   color: rgba(0,0,0,1);
+    text-align: left;
+    color: rgba(0,0,0,1);
     overflow: hidden;
-   text-overflow: ellipsis;
+    text-overflow: ellipsis;
     white-space: nowrap;
     
 }
@@ -326,35 +427,56 @@ i forgot and i wondered why when i floated the main content, the footer would sh
 /* 
 This div class called even is nested within .main-block with a margin right of 30px to create a space between each div.
 
-without moving the content posts out of the flow of the float. the box would become too big if i gave it a margin of 30px.
-*/
+without moving the content posts out of the flow of the float. the box would become too big if i gave it a margin of 30px.*/
 .even {
     margin-right: 30px;
 }
 
-/*-- Main Content MediaQueries --*/
+/*--.vol.6.1 Main Content MediaQueries --
+-----------------------------------------
 
-/* This is for the mid-screen size */
-@media all and (min-width:770px) and (max-width: 1100px){ 
+ -This is for the mid size 
+--------------------------*/
+
+@media only screen and (min-width:767px) and (max-width: 1100px){ 
     .main-block {
-    position: relative;
-    max-width: 50%;
+        width: 100%;
     }
     
     .even {
         margin-right: 15px;
     }
-
 }
 
 /* 
----------------------------------- 
---------- BOTTOM SECTION ---------
-----------------------------------
-----------------------------------
+ -This is for the lo size
+---------------------------*/
+@media only screen and (max-width: 767px){ 
+    #main-section {
+        width: 100%;
+        float: none;
+        overflow: hidden;
+        
+    }
+    .main-block {
+    position: relative;
+    max-width: 100%;
+    }
+    
+    .even {
+        margin-right: 15px;
+    }
+}
+
+/* 
+---------------------------------------- 
+---------.Vol.7 BOTTOM SECTION ---------
+----------------------------------------
+----------------------------------------
 */
 /* 
- Rawz----------
+ .Vol.7.1 Rawz--------------------
+----------------------------------
 */
 
 .rawz {
@@ -362,9 +484,9 @@ without moving the content posts out of the flow of the float. the box would bec
     font-size: 18px;
     line-height: 32px;
     border-bottom: 1px solid rgba(0,0,0,.1);
-    
-    
 }
+
+
 .rawz-submit { 
     width: 50%;
     margin: 0 auto;
@@ -378,7 +500,7 @@ without moving the content posts out of the flow of the float. the box would bec
 a.submit-btn {
     display: block;
     margin: 30px auto 0;
-    padding: 8px 4px 8px 3px;
+    padding: 5px 0 5px 0;
     width: 200px;
     
     border: 3px solid rgba(0,0,0,1);
@@ -390,22 +512,27 @@ a.submit-btn {
     text-transform: uppercase;
     font-weight: bold;
     /* 
-    I need to get to grips with transitions for different states here.. meanwhile this will remain hidden....
+    I need to get to grips with transitions for
+    different states here.. meanwhile this will
+    remain hidden....
     transition: all ease .3s;
     */
 }
 
 /* 
-So in the photoshop screenshot, the rawz images dont line up with the grid.
+So in the photoshop screenshot, the rawz images
+dont line up with the grid.
 I will align my images for the sake on it.
 -they will be split into 3 columns of 33.3334%
--Each gap between each column is 30px, and each image will have a 30px gap between eachother also.
+-Each gap between each column is 30px, and each image
+will have a 30px gap between eachother also.
 */
 
 
 /* 
---------------------------
-----------Footer----------
+---------------------------
+ .Vol.7.2 Footer-----------
+---------------------------
 
 */
 
@@ -414,7 +541,8 @@ I will align my images for the sake on it.
 }
 
 .tagcloud {
-    padding-bottom: 30px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
@@ -438,41 +566,55 @@ li.tag-term {
     text-transform: capitalize;
 }
 
+/* Okay... so i forgot to make each tag an anchor... So
+gonna let it slide for now! it's too long making
+each li an anchor also right now....'*/
+
 /* Credits go to.. */
 
 .credits {
     width: 100%;
-    margin-top: 14px;
+    margin-top: 10px;
 }
 
 .credits p{
-    float: left;
-    text-align: left
+    float: left;;
 }
 
 .social {
     display: block;
     float: right;
 }
+.social-btn {
+    padding: 0 5px;
+}
 
 /*
--- Footer MediaQueries --
--------------------------
-*/
-/* This is for the mid-screen size */
-@media only screen and (min-width:770px) and (max-width: 1100px){ 
+ .Vol.7.3 Footer MediaQueries --
+--------------------------------
+
+
+This is for the mid size
+--------------------------------*/
+@media only screen and (min-width:767px) and (max-width: 1100px){ 
     li.tag-term {
         width: 33.3334%;
     }
-}
-/* This is for the low-screen size */
-@media only screen and (max-width: 770px){
-    body {background-color: aqua;}
+}/*End of mid size */
+
+/* This is for the lo size 
+--------------------------------*/
+@media only screen and (max-width: 767px){
+    
+    .rawz-submit { 
+        width: 90%;
+    }
     .tagcloud {
         display: none;
     }
     .credits {
         margin-top: 7px;
+        width: 50%;
     }
     .credits p{
         float: none;
@@ -481,15 +623,21 @@ li.tag-term {
     .social {
         float: none;
     }
-}
+}/*End of lo size 
 
+-- !!End Footer MediaQueries!! --
+---------------------------------
+*/
 
 /* 
 -----------Clearfix----------
 -----------------------------
 
-Still reading into the specifics of this, I'm not entirely sure what clearfix is actually doing, or how it works.
-in order to put it to good use I feel I have to understand the specifics for what clear does and such.
+Still reading into the specifics of this, 
+I'm not entirely sure what clearfix is actually doing,
+or how it works.
+in order to put it to good use I feel I have to
+understand the specifics for what clear does and such.
 
 */
 
