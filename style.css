@@ -1,7 +1,8 @@
 /* 
 ----------UNIVERSAL STYLES----------
 
--So I've thought that i should need chapter titles to make it easier to CTRL+F into what I'm immediately looking for....
+-So I've thought that i should need chapter titles to make it easier to CTRL+F into what I'm immediately 
+looking for....
 -So here's the chapters, which will be updated slowly:
     <------------------------------------> 
     <----------------INDEX--------------->
@@ -83,9 +84,11 @@ li {
 }
 
 /* 
--.wrap is the body, it creates the 30px margins on either side. Theres an additional margin on the right as part of the <aside> tag, but not the for the featured content
+-.wrap is the body, it creates the 30px margins on either side.
+Theres an additional margin on the right as part of the <aside> tag, but not the for the featured content
 
--I learned that There is a secondary wrap with a -30px margin-left on the real website. This might be to fix the images from being 60px away from the left edge. I had been trying to work it out.
+-I learned that There is a secondary wrap with a -30px margin-left on the real website.
+This might be to fix the images from being 60px away from the left edge. I had been trying to work it out.
 */
 
 #main-wrap {
@@ -154,7 +157,9 @@ This is for lo size
 
 -Vertical-align, I initially did it on the .navi tag, heheehe....
 
--I noticed theres a ::after (It's some kind of special dot.. Ill find out what it is..) element inbetween the menu items, I didn't account for it so I will have to add it + edit the values on the margin between each menu item etc...
+-I noticed theres a ::after (It's some kind of special dot.. 
+Ill find out what it is..) element inbetween the menu items, 
+I didn't account for it so I will have to add it + edit the values on the margin between each menu item etc...
 
 
 */
@@ -181,7 +186,8 @@ This is for lo size
     color: rgba(0,0,0,.1);
 }
 
-/* This one is for the last "child" of the .navi ul won't have a ::after displayed at the end of it. So there isn't an extra dot at the end of the .navi block */
+/* This one is for the last "child" of the .navi ul won't have a ::after
+displayed at the end of it. So there isn't an extra dot at the end of the .navi block */
 .navi li:last-child::after {
     display:none;
 }
@@ -192,17 +198,21 @@ This is for lo size
     display: inline-block;
     position:relative;
     right:-1px ;
+    bottom: -29px;
     /* This attibute above is a bit of a quik-fix, need to line is up correctly */
     float: right;
     
 }
 
 /* 
-This div .next-link : the padding was used to cover the gap that there is between the main-content and the footer ad. 
+This div .next-link : the padding was used to cover the gap that there is
+between the main-content and the footer ad. 
 
-Haven't found a way to fix it but i'm sure it's simple, probably have extra code somewhere i need to remove to replace.
+Haven't found a way to fix it but i'm sure it's simple, probably have extra code
+somewhere i need to remove to replace.
 
-Right now all i can do is this, the border-right is only there to cover the gap, but it doesn't look right because the border box is within, so it shows up as a border within a border.
+Right now all i can do is this, the border-right is only there to cover the gap,
+but it doesn't look right because the border box is within, so it shows up as a border within a border.
 
 '*/
 
@@ -221,28 +231,53 @@ Right now all i can do is this, the border-right is only there to cover the gap,
 --.Vol.3.2 Navi MediaQueries --
 -----------------------
 
--So I realised why the low-screen size is 767px on abduzeedo, and that is after changing the ::after margin, this is the new threshold that the .mani can hold shape till.
+-So I realised why the low-screen size is 767px on abduzeedo, and that is
+after changing the ::after margin, this is the new threshold that the .mani
+can hold shape till.
 -I was initially doing the following:
-@media ONLY screen AND (max-width) and (min-width), But i changed that to just what it is now, seems simplified to me, hopefully it will work as intended...
+@media ONLY screen AND (max-width) and (min-width), But i changed that
+to just what it is now, seems simplified to me, hopefully it will work as intended...
 
 */
 /* This is for the mid size 
+---------------------------------*/
 @media only screen and (min-width:767px) and (max-width: 1100px){ 
     .navi li::after {
         margin: 0 10px 0;
     }
 }
 
-**/
+/*This is for the lo size navi 
+---------------------------------*/
+@media only screen and (max-width: 767px){
+    .pagination {
+    display: block;
+    bottom: -20px;
+        
+    
+    
+}
+    .next-link {
+        padding: 4.5px 40px;
+        font-size: 18px;
+        color: #111;
+        border: 3px solid rgba(0,0,0,1);
+        border-radius: 3px;
+    }
+}
+
+
 /* 
 -----------------------------------------
 ---------.Vol.4 ADSENSE SECTION ---------
 -----------------------------------------
 -----------------------------------------
 
--I forgot to pause adblock so i was missing this, I couldn't see the add styling which is an essential part of the website layout.
+-I forgot to pause adblock so i was missing this, I couldn't see
+the add styling which is an essential part of the website layout.
 
--in order to get the correct measurements, I had to inspect the elements straight from the browser rather than calculating them on photoshop, Like i did for the rest of the layout.
+-in order to get the correct measurements, I had to inspect the elements
+straight from the browser rather than calculating them on photoshop, Like i did for the rest of the layout.
 
 
 
@@ -265,7 +300,6 @@ Right now all i can do is this, the border-right is only there to cover the gap,
 
 .ad-img {
     max-width:100%;
-    height: auto;
     border: 1px solid rgba(0,0,0,.1);
 }
 
@@ -282,18 +316,38 @@ Right now all i can do is this, the border-right is only there to cover the gap,
 
 .aside-img {
     float: right;
+    margin-left: 30px;
+    border: 1px solid rgba(0,0,0,.1)
 }
 
 /*
 .Vol.4.3 AdSense MediaQueries --
 --------------------------------
 
+ -This is for the mid size adsense 
+--------------------------*/
+
+@media only screen and (min-width:767px) and (max-width: 1100px){
+   #sidebar {
+        margin-top: 30px;
+    } 
+    .aside-img {
+        margin-left: 5px;
+    }
+}
+
 /*This is for the lo size adsense 
 ---------------------------------*/
 @media only screen and (max-width: 767px){
+    #mid-adsense, #foot-adsense {
+        
+    }
     #sidebar {
         float: none;
         width: 100%;
+        border-top: 1px solid rgba(0,0,0,.1);
+        padding: 30px 0;
+        margin-top: 30px;
     }
     .aside-img {
         float: none;
@@ -308,7 +362,9 @@ Right now all i can do is this, the border-right is only there to cover the gap,
 -----------------------------------------
 
 
--I found out that the featured styling has a -30px in order to balance out the padding on the featured block padding. I have to add the -30px margin on the content blocks too.
+-I found out that the featured styling has a -30px in order to
+balance out the padding on the featured block padding. I have to add the -30px margin
+on the content blocks too.
 */
 
 #features {
@@ -333,7 +389,8 @@ Right now all i can do is this, the border-right is only there to cover the gap,
 /*--.Vol.5.1 Feature MediaQueries --
 ------------------------------------
 
-At the 1100px mark there's a reduction in margins, i'm assuming its reduced by half
+At the 1100px mark there's a reduction in margins, 
+i'm assuming its reduced by half
 
 --This is for the mid size Feature 
 @media only screen and (min-width: 767px) and (max-width: 1100px){ 
@@ -369,7 +426,8 @@ At the 1100px mark there's a reduction in margins, i'm assuming its reduced by h
 ----------------------------------------
 
 -So i should've put both the sidebar+main content in a div
-i forgot and i wondered why when i floated the main content, the footer would shoot up above it?!
+i forgot and i wondered why when i floated the main content,
+the footer would shoot up above it?!
 -I will now create a div to nest both the content+sidebar so it will all function properly.
 
 */
@@ -378,11 +436,13 @@ i forgot and i wondered why when i floated the main content, the footer would sh
 #main-section {
     width: calc(100% - 330px);
     /* These values above are new to me, but so awesome!
-        -learned about how you need to have spaces between the values inside the brackets for it to work.
+        -learned about how you need to have spaces between
+         the values inside the brackets for it to work.
     */
     position: relative;
     float: left;
     border-right: 1px solid rgba(0,0,0,.1);
+    padding-bottom: 30px;
 }
 
 
@@ -398,11 +458,16 @@ i forgot and i wondered why when i floated the main content, the footer would sh
     
     -Overflow:is what happens to what overflows from the box
     
--text-overflow: What method will the browser show the overflow in.. so far i know ellipsis makes it end in a "..."
+-text-overflow: What method will the browser show the overflow in.. 
+so far i know ellipsis makes it end in a "..."
     
--white-space: changes how the "whitespace" inside the element is handled by the browser, nowrap seems to only show what is within the immediate box without having to add new lines, and doesn't preserve, it hides "overflows" 
+-white-space: changes how the "whitespace" inside the element is handled by the browser,
+nowrap seems to only show what is within the immediate box without having to add new lines,
+and doesn't preserve, it hides "overflows" 
         
--So the combo here is, the white-space makes it so nothig outside the box can be show, the text-overflow makes it so any text that is overflowing and clipped by the box ends in ...(continued), and this is achieved by letting the text overflow outwards by the overflow
+-So the combo here is, the white-space makes it so nothig outside the box can be show,
+the text-overflow makes it so any text that is overflowing and clipped by the box ends in ...
+(continued), and this is achieved by letting the text overflow outwards by the overflow
 
 ----correct me if I'm wrong...pls... */
 
@@ -418,16 +483,15 @@ i forgot and i wondered why when i floated the main content, the footer would sh
 
 .main-block p {
     text-align: left;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
 }
 
 
 /* 
-This div class called even is nested within .main-block with a margin right of 30px to create a space between each div.
+This div class called even is nested within .main-block with a margin right of 30px
+to create a space between each div.
 
-without moving the content posts out of the flow of the float. the box would become too big if i gave it a margin of 30px.*/
+without moving the content posts out of the flow of the float.
+the box would become too big if i gave it a margin of 30px.*/
 .even {
     margin-right: 30px;
 }
@@ -440,7 +504,9 @@ without moving the content posts out of the flow of the float. the box would bec
 
 @media only screen and (min-width:767px) and (max-width: 1100px){ 
     .main-block {
-        width: 100%;
+    position: relative;
+    margin-top:30px ;
+    max-width: 50%;
     }
     
     .even {
@@ -456,15 +522,17 @@ without moving the content posts out of the flow of the float. the box would bec
         width: 100%;
         float: none;
         overflow: hidden;
+        border: none;
         
     }
     .main-block {
     position: relative;
-    max-width: 100%;
+    margin-top:30px ;
+    max-width: 50%;
     }
     
     .even {
-        margin-right: 15px;
+        margin:0 10px;
     }
 }
 
